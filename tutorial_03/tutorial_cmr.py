@@ -1,5 +1,7 @@
 # This cell to be moved to module
 import requests
+import itertools
+
 
 def search_granules(search_parameters, geojson=None, output_format="json"):
     """
@@ -34,13 +36,13 @@ def search_granules(search_parameters, geojson=None, output_format="json"):
     hits = int(response.headers['CMR-Hits'])
     if hits > 0:
         print(f"Found {hits} granules")
-        return response
+        return response.json()
     else:
         print("Found no hits")
         return
 
 
-def filter_urls(response):
+def filter_urls(search_results):
     """
     Extracts urls for each granule
     
@@ -86,4 +88,14 @@ def filter_urls(response):
 
     return urls
 
+
+def print_urls(response):
+    """
+    Print list of href urls for granules from response
+    
+    :response: JSON structure from search_granules
+    """
+    for url in filter_urls(response):
+        print(url)
+    return
 
