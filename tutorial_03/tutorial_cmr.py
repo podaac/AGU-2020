@@ -99,3 +99,24 @@ def print_urls(response):
         print(url)
     return
 
+
+def filter_spatiotemporal(search_results):
+    """
+    Returns a list of dictionaries containing time_start, time_end and extent polygons for granules
+
+    :search_results: dictionary object returned by search_granules
+    
+    :returns: list of dictionaries or empty list of no entries or keys do not exist
+    """
+    if 'feed' not in search_results or 'entry' not in search_results['feed']:
+        return []
+    
+    def _extractor(mydict, key_list=["producer_granule_id", "time_start", "time_end", "polygons"]):
+        """Extract spatio-temporal metadata from search results entry"""
+        return {k: mydict.get(k, None) for k in key_list}
+
+    subset = []
+    for entry in search_results["feed"]["entry"]:
+        subset.append(_extractor(entry))
+    
+    return subset
