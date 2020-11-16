@@ -1,6 +1,8 @@
-
 *.nc
 *.mp4
+
+# Scratch notebooks
+tutorial7/AmazonEstuaryFinal.ipynb
 
 # Jupyter Notebook
 .ipynb_checkpoints
