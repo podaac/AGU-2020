@@ -203,7 +203,7 @@ def get_credentials():
     return (username, password)
 
 
-def cmr_download(urls, outpath=''):
+def download(urls, outpath=''):
     """Download files from list of urls."""
     if not urls:
         return
