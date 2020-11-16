@@ -1,10 +1,14 @@
 # This cell to be moved to module
 import requests
 import itertools
+import netrc
+from urllib.parse import urlparse
 
 from shapely.geometry import Polygon
 import pandas as pd
 import geopandas
+
+URS_URL = 'https://urs.earthdata.nasa.gov'
 
 
 def search_granules(search_parameters, geojson=None, output_format="json"):
@@ -212,6 +216,27 @@ def get_credentials(url):
                 password = None
 
     return credentials
+
+
+def my_get_credentials():
+    """Get user credentials from .netrc or prompt for input."""
+    credentials = None
+    errprefix = ''
+    try:
+        info = netrc.netrc()
+        username, account, password = info.authenticators(urlparse(URS_URL).hostname)
+        errprefix = 'netrc error: '
+    except Exception as e:
+        if (not ('No such file' in str(e))):
+            print('netrc error: {0}'.format(str(e)))
+        username = None
+        password = None
+        
+    if not username:
+        username = get_username()
+        password = get_password()
+
+    return (username, password)
 
 
 def cmr_download(urls, outpath=''):
