@@ -27,8 +27,10 @@ Data and Resources:
 
 Amy Steiker (@asteiker), NASA National Snow and Ice Data Center Distributed Active Archive Center (NSIDC DAAC), University of Colorado
 
+Andrew Barrett (@andypbarrett), National Snow and Ice Data Center, University of Colorado
+
 Matt Fisher (@MattF-NSIDC), NASA National Snow and Ice Data Center Distributed Active Archive Center (NSIDC DAAC), University of Colorado
 
-Andrew Barrett (@andypbarrett), National Snow and Ice Data Center, University of Colorado
+Patrick Quinn (@bilts), Element84, NASA EOSDIS
 
 Walt Meier, NASA National Snow and Ice Data Center Distributed Active Archive Center (NSIDC DAAC), University of Colorado
