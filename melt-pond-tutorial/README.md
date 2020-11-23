@@ -11,17 +11,27 @@ Notes:
 
 * subset by bounding box
 * Harmony (L2SS) API
-* OPeNDAP (cloud) - TBD
+
 
 Data and Resources:
 
-* sea ice (NSIDC)
+* ATL07 sea ice height (NSIDC DAAC)
 * MODIS SST L2 (PODAAC) 
-* SMAP SSS L3 (PODAAC) (if available)
 
-## Key Learning Objectives
+Cloud workflow:
 
-1. TBD...
+<img align="left"
+     src="cloud_services.png">
+     
+<img align="right"
+     src="cloud_services.png">
+
+### Learning objectives:
+1. Select NASA Earthdata sea ice and sea surface temperature datasets
+2. Identify data file size and availability over time and geographic bounding box
+3. Subset and download data using an Application Programmatic Interface (API)
+4. Plot and compare coincident data values
+
 
 ## Authors
 
