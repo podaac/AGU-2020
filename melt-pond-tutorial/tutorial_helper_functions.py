@@ -232,71 +232,77 @@ def request_nsidc_data(API_request):
     return  
 
 
-def request_harmony_data(API_request):
+def request_harmony_data(search_parameters, token):
     """
     Performs a data customization and access request from Harmony.
     
-    :API_request: NSIDC API endpoint; see https://nsidc.org/support/how/how-do-i-programmatically-request-data-services for more info
-    on how to configure the API request.
+    :search_parameters: dictionary of CMR search parameters
+    :token: CMR token needed for restricted search
     
     """
+    # find cmr collection id
+    cmr_collections_url = 'https://cmr.earthdata.nasa.gov/search/collections.json'
+    cmr_response = requests.get(cmr_collections_url, params=search_parameters)
+    cmr_results = json.loads(cmr_response.content) # Get json response from CMR collection metadata
 
+    collectionlist = [el['id'] for el in cmr_results['feed']['entry']]
+    search_parameters['collection_id'] = collectionlist[0]
+    
+    harmony_root = 'https://harmony.earthdata.nasa.gov'
 
-harmony_root = 'https://harmony.earthdata.nasa.gov'
+    lat_list = ((search_parameters['bounding_box'].split(","))[1],":",(search_parameters['bounding_box'].split(","))[3])
+    search_parameters['lat'] = "(" + ''.join(lat_list) + ")"
+    lon_list = ((search_parameters['bounding_box'].split(","))[0],":",(search_parameters['bounding_box'].split(","))[2])
+    search_parameters['lon'] = "(" + ''.join(lon_list) + ")"
+    t1 = search_parameters['temporal'].split(',')[0]
+    t2 = search_parameters['temporal'].split(',')[1]
+    search_parameters['time'] = f'("{t1}":"{t2}")'
 
-bboxSubsetConfig = {
-    'collection_id': 'C1940475563-POCLOUD',
-    'ogc-api-coverages_version': '1.0.0',
-    'variable': 'all',
-    'lat': '(81.7:83)',
-    'lon': '(-62.8:-56.4)',
-    'time': '("2019-06-22T00:00:00Z":"2019-06-22T23:59:59Z")'
-}
-bbox_url = harmony_root+'/{collection_id}/ogc-api-coverages/{ogc-api-coverages_version}/collections/{variable}/coverage/rangeset?&subset=lat{lat}&subset=lon{lon}&subset=time{time}'.format(**bboxSubsetConfig)
-print('Request URL', bbox_url)
-r = session.get(bbox_url)
-bbox_response = r.content
-async_json = json.loads(bbox_response)
-pprint(async_json)
+    harmony_url = harmony_root+'/{collection_id}/ogc-api-coverages/1.0.0/collections/all/coverage/rangeset?&subset=lat{lat}&subset=lon{lon}&subset=time{time}'.format(**search_parameters)
+    print('Request URL', harmony_url)
+    with requests.Session() as session:
+        r = session.get(harmony_url)
+        harmony_response = r.content
+        async_json = json.loads(harmony_response)
+        pprint.pprint(async_json)
 
+        jobConfig = {
+            'jobID': async_json['jobID']
+        }
 
-jobConfig = {
-    'jobID': async_json['jobID']
-}
+        job_url = harmony_root+'/jobs/{jobID}'.format(**jobConfig)
+        print('Job URL', job_url)
 
-job_url = harmony_root+'/jobs/{jobID}'.format(**jobConfig)
-print('Job URL', job_url)
+        job_response = session.get(job_url)
+        job_results = job_response.content
+        job_json = json.loads(job_results)
 
-job_response = session.get(job_url)
-job_results = job_response.content
-job_json = json.loads(job_results)
+        print('Job response:')
+        print()
+        pprint.pprint(job_json)
 
-print('Job response:')
-print()
-pprint(job_json)
+        #Continue loop while request is still processing
+        while job_json['status'] == 'running' and job_json['progress'] < 100: 
+            print('Job status is running. Progress is ', job_json['progress'], '%. Trying again.')
+            time.sleep(10)
+            loop_response = session.get(job_url)
+            loop_results = loop_response.content
+            job_json = json.loads(loop_results)
+            if job_json['status'] == 'running':
+                continue
 
-
-#Continue loop while request is still processing
-while job_json['status'] == 'running' and job_json['progress'] < 100: 
-    print('Job status is running. Progress is ', job_json['progress'], '%. Trying again.')
-    time.sleep(10)
-    loop_response = session.get(job_url)
-    loop_results = loop_response.content
-    job_json = json.loads(loop_results)
-    if job_json['status'] == 'running':
-        continue
-
-if job_json['progress'] == 100:
-    print('Job progress is 100%. Output links printed below:')
-    links = [link for link in job_json['links'] if link.get('rel', 'data') == 'data'] #list of data links from response
-    for i in range(len(links)):
-        link_dict = links[i] 
-        print(link_dict['href'])
-        filepath = link_dict['href'].split('/')[-1]
-        file_ = open(filepath, 'wb')
-        response = session.get(link_dict['href'])
-        file_.write(response.content)
-        file_.close()
+        if job_json['progress'] == 100:
+            print('Job progress is 100%. Output links printed below:')
+            links = [link for link in job_json['links'] if link.get('rel', 'data') == 'data'] #list of data links from response
+            for i in range(len(links)):
+                link_dict = links[i] 
+                print(link_dict['href'])
+                filepath = link_dict['href'].split('/')[-1]
+                file_ = open(filepath, 'wb')
+                response = session.get(link_dict['href'])
+                file_.write(response.content)
+                file_.close()
+    return
     
 ###
 
