@@ -31,7 +31,7 @@ Upon completion of this workshop, you will have a better understanding of what t
 
 The (__Pangeo__) Binder button above allows you to explore and run the notebook in a shared cloud computing environment without the need to install dependencies on your local machine. This environment is running in the AWS us-west-2 region, which is where all Earthdata Cloud data and transformation service outputs are located. Note that this Binder environment will only be available during the Workshop event. See below for how to run the Workshop materials outside of the workshop.
 
-### Local setup 
+## Local setup 
 
 Many of the Jupyter Notebook materials presented during the Workshop can be run locally outside of Amazon Web Services using the following guidance. __XXX Tutorials demonstrating AWS in-region access/analysis need to be run within an AWS EC2 instance, which is described in more detail in the Part III Hands-on notebook.__ 
 
