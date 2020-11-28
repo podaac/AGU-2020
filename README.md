@@ -9,7 +9,7 @@ This workshop, hosted by NASA's Physical Oceanography and National Snow and Ice 
 | Topic                                                                        | Description                                                                                                                             | Time (UTC)                                                                                                    |
 |------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
 | Part I: Welcome: Overview and Context for NASA EOSDIS evolution to the Cloud | Presentation with Q&A                                                                                                                   | 16:00 - 16:35                                                                                                 |
-| Part II: Science Use Case Demonstrations                                     | Jupyter Notebook demonstrations, highlighting NASA EOSDIS tools and services applied across several science use cases (15 min each)     | Demonstrations: 16:35 - 17:05 Break: 17:05 - 17:15 Demonstrations cont'd 3-6: 17:15-18:15  Break : 18:15 - 18:45 |
+| Part II: Science Use Case Demonstrations                                     | Jupyter Notebook demonstrations, highlighting NASA EOSDIS tools and services applied across several science use cases (15 min each)     | Demonstrations (including breaks): 16:35 - 18:45|
 | Part III: Hands-on data discovery, access, and analysis in the cloud         | Jupyter Notebook tutorial providing step-by-step guidance on cloud-based data access and cloud compute based on previous demonstrations | 18:45 - 21:00 (including 5-min break and wrap up)                                                             |
 
 This repository is structured accordingly. All materials for this workshop can be found in each Part's respective folder.
@@ -37,21 +37,24 @@ Many of the Jupyter Notebook materials presented during the Workshop can be run 
 
 1. Install miniconda3 (Python 3.8) for your platform from https://docs.conda.io/en/latest/miniconda.html
 
-Download the AGU-2020 repository from Github by clicking the green 'Code' button located at the top right of the repository page, then select 'Download Zip'.
+2. Download the AGU-2020 repository from Github by clicking the green 'Code' button located at the top right of the repository page, then select 'Download Zip'.
 
-Unzip the file, and open a command line or terminal window in the AGU-2020 folder's location.
+3. Unzip the file, and open a command line or terminal window in the AGU-2020 folder's location.
 
-From a command line or terminal window, install the required environment with the following command (__NEEDS UPDATING ONCE ENV IS SET UP__):
+4. From a command line or terminal window, install the required environment with the following command (__NEEDS UPDATING ONCE ENV IS SET UP__):
 
-conda env create -f binder/environment.yml
-you should now see that the dependencies were installed and our environment is ready to be used.
+`conda env create -f binder/environment.yml`
 
-Activate the environment with
+You should now see that the dependencies were installed and our environment is ready to be used.
 
-conda activate tutorials
-Launch the notebook locally with the following command:
+5. Activate the environment with
 
-jupyter lab
+`conda activate tutorials`
+
+6. Launch the notebook locally with the following command:
+
+`jupyter lab`
+
 This should open a browser window with the JupyterLab IDE, showing your current working directory on the left-hand navigation. 
 
 
