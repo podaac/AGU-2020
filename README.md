@@ -6,7 +6,7 @@ This repository contains materials for the 2020 AGU Fall Meeting Workshop: [SCIW
 
 The links below will launch an interactive environment on [binder.pangeo.io](https://binder.pangeo.io/) Note that binder environments are ephemeral. Any changes you make will be lost once your session ends, and you shouldn't store passwords.
 
-| [![badge](https://img.shields.io/static/v1.svg?logo=Jupyter&label=Pangeo+Binder&message=GCE+us-central1&color=blue)](https://binder.pangeo.io/v2/gh/podaac/AGU-2020/main?urlpath=git-pull?repo=https://github.com/podaac/AGU-2020%26amp%3Burlpath=lab/tree/main) |
+| [![badge](https://img.shields.io/static/v1.svg?logo=Jupyter&label=Pangeo+Binder&message=AWS+us-west2&color=blue)](https://aws-uswest2-binder.pangeo.io/v2/gh/podaac/AGU-2020/main?urlpath=git-pull?repo=https://github.com/podaac/AGU-2020%26amp%3Burlpath=lab/tree/main) |
 
 This workshop, hosted by NASA's Physical Oceanography and National Snow and Ice Data Center Distributed Active Archive Centers (PO.DAAC and NSIDC DAAC), is presented in three parts:
 
@@ -33,7 +33,7 @@ Upon completion of this workshop, you will have a better understanding of what t
 
 ## Workshop Usage
 
-The [![badge](https://img.shields.io/static/v1.svg?logo=Jupyter&label=Pangeo+Binder&message=GCE+us-central1&color=blue)](https://binder.pangeo.io/v2/gh/podaac/AGU-2020/main?urlpath=git-pull?repo=https://github.com/podaac/AGU-2020%26amp%3Burlpath=lab/tree/main)  Binder button allows you to explore and run the notebook in a shared cloud computing environment without the need to install dependencies on your local machine. This environment is running in the AWS us-west-2 region, which is where all Earthdata Cloud data and transformation service outputs are located. Note that this Binder environment will only be available during the Workshop event. See below for how to run the Workshop materials outside of the workshop.
+The [![badge](https://img.shields.io/static/v1.svg?logo=Jupyter&label=Pangeo+Binder&message=AWS+us-west2&color=blue)](https://aws-uswest2-binder.pangeo.io/v2/gh/podaac/AGU-2020/main?urlpath=git-pull?repo=https://github.com/podaac/AGU-2020%26amp%3Burlpath=lab/tree/main) Binder button allows you to explore and run the notebook in a shared cloud computing environment without the need to install dependencies on your local machine. This environment is running in the AWS us-west-2 region, which is where all Earthdata Cloud data and transformation service outputs are located. Note that this Binder environment will only be available during the Workshop event. See below for how to run the Workshop materials outside of the workshop.
 
 ## Local setup 
 
