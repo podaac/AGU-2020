@@ -5,8 +5,7 @@
 This repository contains materials for the 2020 AGU Fall Meeting Workshop: [SCIWS8 - Working with Cloud-Based NASA Earth Observations Data and Tools](https://agu.confex.com/agu/fm20/meetingapp.cgi/Session/105465)
 
 The links below will launch an interactive environment on [binder.pangeo.io](https://binder.pangeo.io/) Note that binder environments are ephemeral. Any changes you make will be lost once your session ends, and you shouldn't store passwords.
-
-| [![badge](https://img.shields.io/static/v1.svg?logo=Jupyter&label=Pangeo+Binder&message=AWS+us-west2&color=blue)](https://aws-uswest2-binder.pangeo.io/v2/gh/podaac/AGU-2020/main?urlpath=git-pull?repo=https://github.com/podaac/AGU-2020%26amp%3Burlpath=lab/tree/main) |
+[![badge](https://img.shields.io/static/v1.svg?logo=Jupyter&label=Pangeo+Binder&message=AWS+us-west2&color=blue)](https://aws-uswest2-binder.pangeo.io/v2/gh/podaac/AGU-2020/main?urlpath=git-pull?repo=https://github.com/podaac/AGU-2020%26amp%3Burlpath=lab/tree/main)
 
 This workshop, hosted by NASA's Physical Oceanography and National Snow and Ice Data Center Distributed Active Archive Centers (PO.DAAC and NSIDC DAAC), is presented in three parts:
 
