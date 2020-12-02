@@ -33,4 +33,5 @@ dependencies:
 - pip
 - pip:
   - icepyx
+  - nbgitpuller
   - python-cmr
