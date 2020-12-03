@@ -7,7 +7,7 @@ This repository contains materials for the 2020 AGU Fall Meeting Workshop: [SCIW
 The links below will launch an interactive environment on [binder.pangeo.io](https://binder.pangeo.io/) Note that binder environments are ephemeral. Any changes you make will be lost once your session ends, and you shouldn't store passwords.
 [![badge](https://img.shields.io/static/v1.svg?logo=Jupyter&label=Pangeo+Binder&message=AWS+us-west2&color=blue)](https://aws-uswest2-binder.pangeo.io/v2/gh/podaac/AGU-2020/binder?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Fpodaac%252FAGU-2020%26urlpath%3Dlab%252Ftree%252FAGU-2020%252F%26branch%3Dmain)
 
-This workshop, hosted by NASA's Physical Oceanography and National Snow and Ice Data Center Distributed Active Archive Centers (PO.DAAC and NSIDC DAAC), is presented in three parts:
+This workshop, hosted by NASA's Physical Oceanography and National Snow and Ice Data Center Distributed Active Archive Centers ([PO.DAAC(https://podaac.jpl.nasa.gov/) and [NSIDC DAAC]((https://nsidc.org/daac))), is presented in three parts:
 
 | Topic                                                                        | Description                                                                                                                             | Time (UTC)                                                                                                    |
 |------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
@@ -89,7 +89,7 @@ catalina.oaida@jpl.nasa.gov
 
 ## Acknowledgements
 
-This tutorial was put together by the Authors and Presenters listed above, with support from their institutions, NASA EOSDIS [PO.DAAC](https://podaac.jpl.nasa.gov/) at Jet Propulsion Laboratory California Institute of Technology and NASA EOSDIS [NSIDC DAAC](https://nsidc.org/daac).
+This tutorial was put together by the Authors and Presenters listed above, with support from their institutions, NASA [PO.DAAC](https://podaac.jpl.nasa.gov/) at Jet Propulsion Laboratory California Institute of Technology and NASA [NSIDC DAAC](https://nsidc.org/daac).
 
 This tutorial runs on top of Pangeo's Binderhub.
 Pangeo is [supported](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1740633&HistoricalAwards=false) by the [National Science Foundation (NSF)](https://www.nsf.gov/) via the [EarthCube Program](https://www.earthcube.org/) and the [National Aeronautics and Space Administration](https://www.nasa.gov/) via the [ACCESS Program](https://earthdata.nasa.gov/community/community-data-system-programs/access-projects).
