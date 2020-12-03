@@ -89,6 +89,8 @@ catalina.oaida@jpl.nasa.gov
 
 ## Acknowledgements
 
+This tutorial was put together by the Authors and Presenters listed above, with support from their institutions, NASA EOSDIS [PO.DAAC](https://podaac.jpl.nasa.gov/) at Jet Propulsion Laboratory California Institute of Technology and NASA EOSDIS [NSIDC DAAC](https://nsidc.org/daac).
+
 This tutorial runs on top of Pangeo's Binderhub.
 Pangeo is [supported](https://www.nsf.gov/awardsearch/showAward?AWD_ID=1740633&HistoricalAwards=false) by the [National Science Foundation (NSF)](https://www.nsf.gov/) via the [EarthCube Program](https://www.earthcube.org/) and the [National Aeronautics and Space Administration](https://www.nasa.gov/) via the [ACCESS Program](https://earthdata.nasa.gov/community/community-data-system-programs/access-projects).
 
