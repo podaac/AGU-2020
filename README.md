@@ -63,7 +63,7 @@ This should open a browser window with the JupyterLab IDE, showing your current 
 
 ## Authors and Presenters
 
-Catalina M Oaida, NASA Jet Propulsion Laboratory 
+Catalina M Oaida, NASA Jet Propulsion Laboratory, California Institute of Technology
 
 Amy Steiker, NASA National Snow and Ice Data Center Distributed Active Archive Center (NSIDC DAAC), University of Colorado
 
@@ -71,13 +71,13 @@ Andrew P Barrett, National Snow and Ice Data Center, University of Colorado
 
 Walt Meier, NASA National Snow and Ice Data Center Distributed Active Archive Center (NSIDC DAAC), University of Colorado
 
-Jack McNelis, NASA Jet Propulsion Laboratory
+Jack McNelis, NASA Jet Propulsion Laboratory, California Institute of Technology
 
-Mike Gangl, NASA Jet Propulsion Laboratory
+Mike Gangl, NASA Jet Propulsion Laboratory, California Institute of Technology
 
 Luis Alberto Lopez, National Snow and Ice Data Center, University of Colorado
 
-Stepheny Perez, NASA Jet Propulsion Laboratory (JPL)
+Stepheny Perez, NASA Jet Propulsion Laboratory, California Institute of Technology
 
 
 ### Contacts
