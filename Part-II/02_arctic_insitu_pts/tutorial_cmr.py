@@ -13,6 +13,30 @@ import geopandas
 URS_URL = 'https://urs.earthdata.nasa.gov'
 
 
+def setup_earthdata_login_auth(endpoint=URS_URL):
+    from urllib import request
+    from netrc import netrc
+    from platform import system
+    from getpass import getpass
+    from http.cookiejar import CookieJar
+    from os.path import join, expanduser
+    netrc_name = "_netrc" if system()=="Windows" else ".netrc"
+    try:
+        username, _, password = netrc(file=join(expanduser('~'), netrc_name)).authenticators(endpoint)
+    except (FileNotFoundError, TypeError):
+        print('Please provide your Earthdata Login credentials for access.')
+        print('Your info will only be passed to %s and will not be exposed in Jupyter.' % (endpoint))
+        username = input('Username: ')
+        password = getpass('Password: ')
+    manager = request.HTTPPasswordMgrWithDefaultRealm()
+    manager.add_password(None, endpoint, username, password)
+    auth = request.HTTPBasicAuthHandler(manager)
+    jar = CookieJar()
+    processor = request.HTTPCookieProcessor(jar)
+    opener = request.build_opener(auth, processor)
+    request.install_opener(opener)
+
+
 def search_granules(search_parameters, geojson=None, output_format="json"):
     """
     Performs a granule search
