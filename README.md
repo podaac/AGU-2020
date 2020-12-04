@@ -36,7 +36,7 @@ The [![badge](https://img.shields.io/static/v1.svg?logo=Jupyter&label=Pangeo+Bin
 
 ## Local setup 
 
-Many of the Jupyter Notebook materials presented during the Workshop can be run locally outside of Amazon Web Services using the following guidance. __XXX Tutorials demonstrating AWS in-region access/analysis need to be run within an AWS EC2 instance, which is described in more detail in the Part III Hands-on notebook.__ 
+Many of the Jupyter Notebook materials presented during the Workshop can be run locally outside of Amazon Web Services using the following guidance. Tutorials demonstrating AWS in-region access/analysis (Tutorials 05 and 06 within Part II) need to be run within an AWS EC2 instance, which is described in more detail at the bottom of the Part III Hands-on notebook.__ 
 
 1. Install miniconda3 (Python 3.8) for your platform from https://docs.conda.io/en/latest/miniconda.html
 
@@ -44,7 +44,7 @@ Many of the Jupyter Notebook materials presented during the Workshop can be run 
 
 3. Unzip the file, and open a command line or terminal window in the AGU-2020 folder's location.
 
-4. From a command line or terminal window, install the required environment with the following command (__NEEDS UPDATING ONCE ENV IS SET UP__):
+4. From a command line or terminal window, install the required environment with the following command:
 
 `conda env create -f binder/environment.yml`
 
