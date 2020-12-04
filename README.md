@@ -34,6 +34,10 @@ Upon completion of this workshop, you will have a better understanding of what t
 
 The [![badge](https://img.shields.io/static/v1.svg?logo=Jupyter&label=Pangeo+Binder&message=AWS+us-west2&color=blue)](https://aws-uswest2-binder.pangeo.io/v2/gh/podaac/AGU-2020/binder?urlpath=git-pull%3Frepo%3Dhttps%253A%252F%252Fgithub.com%252Fpodaac%252FAGU-2020%26urlpath%3Dlab%252Ftree%252FAGU-2020%252F%26branch%3Dmain) Binder button allows you to explore and run the notebook in a shared cloud computing environment without the need to install dependencies on your local machine. This environment is running in the AWS us-west-2 region, which is where all Earthdata Cloud data and transformation service outputs are located. Note that this Binder environment will only be available during the Workshop event. See below for how to run the Workshop materials outside of the workshop.
 
+## Slack
+Please join us on slack during the workshop to communicate in real time with our instructors! 
+https://join.slack.com/t/nasadaacagu20-5ai7790/shared_invite/zt-jalk79mu-csyLA9IJLjiIY8w5uD1~oQ
+
 ## Local setup 
 
 Many of the Jupyter Notebook materials presented during the Workshop can be run locally outside of Amazon Web Services using the following guidance. Tutorials demonstrating AWS in-region access/analysis (Tutorials 05 and 06 within Part II) need to be run within an AWS EC2 instance, which is described in more detail at the bottom of the Part III Hands-on notebook.__ 
