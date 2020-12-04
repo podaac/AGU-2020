@@ -5,7 +5,7 @@ import itertools
 import netrc
 import getpass
 from urllib.parse import urlparse
-
+from urllib.request import HTTPError
 from shapely.geometry import Polygon
 import pandas as pd
 import geopandas
