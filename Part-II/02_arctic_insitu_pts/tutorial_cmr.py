@@ -10,6 +10,12 @@ from shapely.geometry import Polygon
 import pandas as pd
 import geopandas
 
+# Added for get_credentials2 and download2
+import base64
+from urllib.parse import urlparse
+from urllib.request import urlopen, Request, build_opener, HTTPCookieProcessor
+from urllib.error import HTTPError, URLError
+
 URS_URL = 'https://urs.earthdata.nasa.gov'
 
 
@@ -235,3 +241,77 @@ def download(urls, outpath=''):
             open(filename, 'wb').write(response.content)
 
             
+def get_credentials2(url):
+    """Get user credentials from .netrc or prompt for input."""
+    credentials = None
+    errprefix = ''
+    try:
+        info = netrc.netrc()
+        username, account, password = info.authenticators(urlparse(URS_URL).hostname)
+        errprefix = 'netrc error: '
+    except Exception as e:
+        if (not ('No such file' in str(e))):
+            print('netrc error: {0}'.format(str(e)))
+        username = None
+        password = None
+        
+    while not credentials:
+        if not username:
+            username = get_username()
+            password = get_password()
+        credentials = '{0}:{1}'.format(username, password)
+        credentials = base64.b64encode(credentials.encode('ascii')).decode('ascii')
+        
+        if url:
+            try:
+                req = Request(url)
+                req.add_header('Authorization', 'Basic {0}'.format(credentials))
+                opener = build_opener(HTTPCookieProcessor())
+                opener.open(req)
+            except HTTPError:
+                print(errprefix + 'Incorrect username or password')
+                errprefix = ''
+                credentials = None
+                username = None
+                password = None
+                
+    return credentials
+
+
+def download2(urls, outpath=''):
+    """Another way..."""
+    """Download files from list of urls."""
+    if not urls:
+        return
+    
+    url_count = len(urls)
+    print('Downloading {0} files...'.format(url_count))
+    credentials = None
+    
+    for index, url in enumerate(urls, start=1):
+        if not credentials and urlparse(url).scheme == 'https':
+            credentials = get_credentials2(url)
+            
+        filename = url.split('/')[-1]
+        print('{0}/{1}: {2}'.format(str(index).zfill(len(str(url_count))),
+                                    url_count,
+                                    filename))
+        
+        try:
+            # In Python 3 we could eliminate the opener and just do 2 lines:
+            # resp = requests.get(url, auth=(username, password))
+            # open(filename, 'wb').write(resp.content)
+            req = Request(url)
+            if credentials:
+                req.add_header('Authorization', 'Basic {0}'.format(credentials))
+            opener = build_opener(HTTPCookieProcessor())
+            data = opener.open(req).read()
+            open(filename, 'wb').write(data)
+        except HTTPError as e:
+            print('HTTP error {0}, {1}'.format(e.code, e.reason))
+        except URLError as e:
+            print('URL error: {0}'.format(e.reason))
+        except IOError:
+            raise
+        except KeyboardInterrupt:
+            quit()
