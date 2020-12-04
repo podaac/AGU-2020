@@ -56,7 +56,7 @@ You should now see that the dependencies were installed and our environment is r
 
 5. Activate the environment with
 
-`conda activate tutorials`
+`conda activate agu2020`
 
 6. Launch the notebook locally with the following command:
 
