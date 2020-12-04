@@ -17,11 +17,11 @@ OpenAltimetry is funded by NASA and is a collaboration between the National Snow
 
 *Main interface of OpenAltimetry*
 
-![Main interface of OpenAltimetry](OA_Interface.png)
-
-     
+![Main interface of OpenAltimetry](OpenAltimetry_snapshot.png)
+    
      
 *Plot of land ice elevation (ATL06) over Greenland on 15 July 2020 (Track ID 300)*
 
-<img align="center"
-     src="OA_landiceelev.png">
+![Plot of land ice elevation (ATL06) over Greenland on 15 July 2020 (Track ID 300)](OpenAltimetry_snapshot_plot.png)
+
+
