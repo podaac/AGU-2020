@@ -3,6 +3,7 @@ import os
 import requests
 import itertools
 import netrc
+import getpass
 from urllib.parse import urlparse
 
 from shapely.geometry import Polygon
@@ -176,7 +177,7 @@ def get_password():
     password = ''
     while not password:
         try:
-            password = getpass('password: ')
+            password = getpass.getpass('password: ')
         except KeyboardInterrupt:
             quit()
     return password
